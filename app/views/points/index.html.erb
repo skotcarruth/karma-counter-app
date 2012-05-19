@@ -1,0 +1,28 @@
+<h1>Listing points</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>User</th>
+      <th>Comment</th>
+      <th>Cumulative value</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+  <% @points.each do |point| %>
+    <tr>
+      <td><%= point.value %></td>
+      <td><%= point.user_id %></td>
+      <td><%= point.comment %></td>
+      <td><%= point.cumulative_value %></td>
+      <td><%= link_to 'Show', point %></td>
+      <td><%= link_to 'Destroy', point, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Point', new_point_path %>
